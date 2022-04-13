@@ -7,6 +7,7 @@ import Input from '../components/Input';
 import FormPage from '../components/FormPage';
 import TextButton from '../components/TextButton';
 import SubmitButton from '../components/SubmitButton';
+import ErrorMessage from '../components/ErrorMessage';
 
 const Login : React.FC = () => {
     const [data, setData] = useState({
@@ -29,6 +30,7 @@ const Login : React.FC = () => {
             const { data: res } = await axios.post(url, data);
             localStorage.setItem('token', res.data);
             navigate('/');
+            window.location.reload();
         } catch (error : any) {
             if(error.response && error.response.status >= 400 && error.response.status <= 500) {
                 setError(error.response.data.message);
@@ -43,7 +45,7 @@ const Login : React.FC = () => {
                 <Input type='email' handleChange={ handleChange } placeholder='Email' name='email' isRequired />
                 <Input type='password' handleChange={ handleChange } placeholder='Password' name='password' isRequired />
 
-                { error && <span>{ error }</span> }
+                { error && <ErrorMessage text={ error } /> }
 
                 <SubmitButton text="Login" />
             </form>

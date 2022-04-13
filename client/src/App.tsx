@@ -9,7 +9,10 @@ function App() {
   return (
     <div className="w-screen min-h-screen">
       <Routes>
-        { user && <Route path="/" element={<Home />} />}
+        { user && ["/", "/login", "/register"].map((path, key) => 
+            <Route key={ key } path={ path } element={ <Home /> } />
+          )
+        }
         { !user && <Route path="/" element={<Login />} />}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

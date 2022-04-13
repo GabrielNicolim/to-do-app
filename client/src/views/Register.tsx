@@ -7,6 +7,7 @@ import Input from '../components/Input';
 import FormPage from '../components/FormPage';
 import TextButton from '../components/TextButton';
 import SubmitButton from '../components/SubmitButton';
+import ErrorMessage from '../components/ErrorMessage';
 
 const Register : React.FC = () => {
     const [data, setData] = useState({
@@ -46,6 +47,8 @@ const Register : React.FC = () => {
                 <Input type='email' handleChange={ handleChange } placeholder='Email' name='email' isRequired />
                 <Input type='password' handleChange={ handleChange } placeholder='Password' name='password' isRequired />
 
+                { error && <ErrorMessage text={ error } /> }
+                
                 <SubmitButton text='Register' />
             </form>
 
