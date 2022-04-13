@@ -1,7 +1,7 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import Login from './components/Login.jsx';
-import SignUp from './components/SignUp';
-import Home from './components/Home';
+import { Routes, Route } from "react-router-dom";
+import Login from './views/Login.js';
+import Register from './views/Register';
+import Home from './views/Home';
 
 function App() {
   const user = localStorage.getItem('token');
@@ -12,7 +12,7 @@ function App() {
         { user && <Route path="/" element={<Home />} />}
         { !user && <Route path="/" element={<Login />} />}
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<SignUp />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   )
