@@ -1,12 +1,14 @@
 const Header : React.FC = ({ children }) => {
     return (
-        <header className="bg-dark-blue flex justify-between items-center py-3 px-3 md:px-5 drop-shadow-lg">
-            <h1 className="text-xl text-white drop-shadow-lg">
-                To do List
-            </h1>
+        <header className="flex justify-center items-center w-screen bg-dark-blue">
+            <div className="flex justify-between items-center w-screen md:w-8/12 lg:w-6/12 py-3 px-3 drop-shadow-lg">
+                <h1 className="text-xl text-white drop-shadow-lg">
+                    To do List
+                </h1>
 
-            <div>
-                { children }
+                <div>
+                    { children }
+                </div>
             </div>
         </header>
     );  

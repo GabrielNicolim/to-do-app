@@ -2,7 +2,7 @@
 
 A simple to do app using React
 
-# Intalation
+# Instalation
 
 ## Dependencies
 

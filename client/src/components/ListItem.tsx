@@ -1,6 +1,10 @@
 import TrashIcon from "./icons/TrashIcon";
 
-const ListItem : React.FC = () => {
+interface PropsInterface {
+    handleClick: () => void;
+}
+
+const ListItem : React.FC<PropsInterface> = ({ handleClick }) => {
     return (
         <div className="flex w-full mb-4 drop-shadow-lg">
             <div
@@ -16,10 +20,13 @@ const ListItem : React.FC = () => {
                 </span>
                 
                 <span>
-                    Teste
+                    :)
                 </span>
             </div>
-            <div className="flex items-center justify-center bg-red rounded-tr-md rounded-br-md cursor-pointer w-12 lg:w-4 hover:bg-dark-red hover:w-14 ease-in-out duration-200 show-item">   
+            <div
+                onClick={ handleClick } 
+                className="flex items-center justify-center bg-red rounded-tr-md rounded-br-md cursor-pointer w-12 lg:w-4 hover:bg-dark-red hover:w-14 ease-in-out duration-200 show-item"
+            >   
                 <TrashIcon />
             </div>
         </div>
